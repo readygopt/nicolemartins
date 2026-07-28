@@ -283,13 +283,13 @@ function Services() {
             <Reveal><p className="eyebrow">Serviços</p></Reveal>
             <Reveal delay={0.1}>
               <h2 className="mt-6 max-w-2xl font-serif text-4xl leading-[1.05] md:text-6xl">
-                Uma abordagem <em className="italic text-champagne-deep">única</em> para cada mulher.
+                Serviços.
               </h2>
             </Reveal>
           </div>
           <Reveal delay={0.2}>
             <p className="max-w-sm text-muted-ink">
-              Quatro caminhos, uma mesma exigência: fazê-la sentir irrepetível.
+              Maquilhagem pensada para cada momento.
             </p>
           </Reveal>
         </div>

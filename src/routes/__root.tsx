@@ -77,14 +77,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Nicole Martins — Maquilhadora Profissional no Algarve" },
+      { title: "Nicole Martins, Maquilhadora Profissional no Algarve" },
       {
         name: "description",
         content:
           "Maquilhagem de luxo para noivas, casamentos de destino e ocasiões especiais no Algarve. Serviço personalizado, produtos premium e uma experiência inesquecível.",
       },
       { name: "author", content: "Nicole Martins" },
-      { property: "og:title", content: "Nicole Martins — Maquilhadora Profissional no Algarve" },
+      { property: "og:title", content: "Nicole Martins, Maquilhadora Profissional no Algarve" },
       {
         property: "og:description",
         content:

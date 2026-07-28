@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const links = [
   { href: "#sobre", label: "Sobre" },
   { href: "#servicos", label: "Serviços" },
-  { href: "#portfolio", label: "Portfólio" },
+  { href: "#portfolio", label: "Trabalhos" },
   { href: "#processo", label: "Processo" },
   { href: "#testemunhos", label: "Testemunhos" },
   { href: "#faq", label: "FAQ" },
@@ -48,7 +48,7 @@ export function Nav() {
           ))}
         </nav>
         <a href={WHATSAPP} target="_blank" rel="noopener" className="hidden btn-primary lg:inline-flex">
-          Reservar
+          Marcar
         </a>
         <button
           aria-label="Abrir menu"
@@ -80,7 +80,7 @@ export function Nav() {
               </a>
             ))}
             <a href={WHATSAPP} target="_blank" rel="noopener" className="btn-primary mt-4 self-start">
-              Reservar no WhatsApp
+              Marcar no WhatsApp
             </a>
           </div>
         </motion.div>

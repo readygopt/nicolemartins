@@ -23,11 +23,11 @@ import eventoImg from "@/assets/evento.jpg.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Nicole Martins — Maquilhadora Profissional | Algarve" },
+      { title: "Nicole Martins | Maquilhadora no Algarve" },
       {
         name: "description",
         content:
-          "Maquilhagem de luxo para noivas, casamentos de destino e ocasiões especiais no Algarve. Serviço personalizado por Nicole Martins.",
+          "Maquilhagem profissional para noivas, eventos e sessões fotográficas no Algarve.",
       },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -40,7 +40,7 @@ export const Route = createFileRoute("/")({
           name: "Nicole Martins Makeup Artist",
           image: heroImg.url,
           description:
-            "Maquilhadora profissional no Algarve especializada em noivas, casamentos de destino e ocasiões especiais.",
+            "Maquilhadora profissional no Algarve. Noivas, eventos e sessões fotográficas.",
           areaServed: "Algarve, Portugal",
           address: { "@type": "PostalAddress", addressRegion: "Algarve", addressCountry: "PT" },
           priceRange: "€€€",
@@ -99,7 +99,7 @@ function Hero() {
           className="eyebrow text-white/90"
           style={{ color: "rgba(255,255,255,0.9)" }}
         >
-          Maquilhadora Profissional · Algarve
+          Maquilhadora · Algarve
         </motion.p>
 
         <motion.h1
@@ -108,7 +108,7 @@ function Hero() {
           transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mt-6 max-w-4xl font-serif text-[44px] leading-[1.02] text-white sm:text-6xl md:text-7xl lg:text-[88px]"
         >
-          A beleza que sempre <em className="italic text-champagne">imaginou</em>, no dia mais importante.
+          Maquilhagem para o seu <em className="italic text-champagne">dia</em>.
         </motion.h1>
 
         <motion.p
@@ -117,8 +117,9 @@ function Hero() {
           transition={{ duration: 1, delay: 1 }}
           className="mt-8 max-w-xl text-base leading-relaxed text-white/85 md:text-lg"
         >
-          Maquilhagem editorial e nupcial para mulheres exigentes. Uma experiência íntima,
-          discreta e absolutamente sua — do primeiro pincelar ao último olhar.
+          Noivas, eventos e sessões fotográficas.
+          <br />
+          Trabalho em toda a região do Algarve.
         </motion.p>
 
         <motion.div
@@ -128,10 +129,10 @@ function Hero() {
           className="mt-10 flex flex-wrap items-center gap-4"
         >
           <a href={WHATSAPP} target="_blank" rel="noopener" className="btn-primary bg-white text-ink border-white hover:bg-champagne-deep hover:text-white hover:border-champagne-deep">
-            Reservar no WhatsApp
+            Marcar no WhatsApp
           </a>
           <a href="#portfolio" className="btn-ghost text-white border-white/80 hover:bg-white hover:text-ink">
-            Ver Portfólio
+            Ver trabalhos
           </a>
         </motion.div>
       </div>
@@ -142,7 +143,7 @@ function Hero() {
         transition={{ delay: 1.6, duration: 1 }}
         className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-3"
       >
-        <span className="text-[10px] uppercase tracking-[0.3em] text-white/80">Descubra</span>
+        <span className="text-[10px] uppercase tracking-[0.3em] text-white/80">Ver mais</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
@@ -196,25 +197,19 @@ function About() {
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="mt-6 font-serif text-4xl leading-[1.05] md:text-5xl lg:text-6xl">
-              Beleza <em className="italic text-champagne-deep">discreta</em>.
-              <br />
-              Presença inesquecível.
+              Sobre <em className="italic text-champagne-deep">mim</em>.
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
             <div className="mt-10 space-y-6 text-base leading-relaxed text-muted-ink md:text-lg">
               <p>
-                Sou a Nicole. Há mais de uma década que faço da maquilhagem uma arte silenciosa —
-                aquela que realça sem esconder, que traduz personalidade em vez de a substituir.
+                Sou a Nicole. Faço maquilhagem profissional há mais de dez anos.
               </p>
               <p>
-                Trabalho lado a lado com noivas, editoriais de moda e mulheres que celebram
-                momentos únicos por todo o Algarve. Cada rosto é um estudo. Cada olhar,
-                uma decisão pensada ao milímetro.
+                Trabalho com noivas, eventos e sessões fotográficas em toda a região do Algarve.
               </p>
               <p>
-                Produtos premium selecionados. Consulta prévia detalhada. Um dia sem pressas,
-                onde a única prioridade é você sentir-se absolutamente confiante.
+                Uso produtos de qualidade e adapto cada maquilhagem à pessoa que tenho à frente.
               </p>
             </div>
           </Reveal>
@@ -223,7 +218,7 @@ function About() {
             <div className="mt-14 grid grid-cols-3 gap-8 border-t border-line pt-10">
               {[
                 { n: "10+", l: "Anos de experiência" },
-                { n: "300+", l: "Noivas maquilhadas" },
+                { n: "300+", l: "Noivas" },
                 { n: "40+", l: "Casamentos destino" },
               ].map((s) => (
                 <div key={s.l}>
@@ -245,37 +240,37 @@ const services = [
     n: "01",
     title: "Noivas",
     img: laughing2.url,
-    desc: "A sua maquilhagem de sonho, resistente a lágrimas, abraços e horas intermináveis de celebração.",
-    bullets: ["Consulta prévia", "Prova de maquilhagem", "Deslocação ao local", "Retoques inclusos"],
-    duration: "3–4 horas",
-    ideal: "Noivas que valorizam serenidade e perfeição.",
+    desc: "Maquilhagem para o dia do casamento. Natural, bonita e feita para durar.",
+    bullets: ["Consulta prévia", "Prova de maquilhagem", "Deslocação incluída", "Retoques ao longo do dia"],
+    duration: "3 a 4 horas",
+    ideal: "Noivas no Algarve.",
   },
   {
     n: "02",
     title: "Casamento Destino",
     img: powderBeach.url,
-    desc: "Pacotes exclusivos para casamentos em vilas privadas, cliffs e resorts do Algarve.",
-    bullets: ["Pacote noiva + convidadas", "Trial personalizada", "Assistência dia completo", "Kit de retoque"],
-    duration: "Dia completo",
-    ideal: "Casamentos internacionais e destination weddings.",
+    desc: "Pacotes para casamentos em vilas, resorts e quintas do Algarve.",
+    bullets: ["Noiva e convidadas", "Prova personalizada", "Acompanhamento no dia", "Kit de retoques"],
+    duration: "Dia inteiro",
+    ideal: "Casamentos internacionais.",
   },
   {
     n: "03",
-    title: "Editorial & Fashion",
+    title: "Editorial e Fashion",
     img: eventoImg.url,
-    desc: "Beauty looks para campanhas, editoriais de moda, lookbooks e produções de conteúdo.",
-    bullets: ["Direção criativa", "Beauty & body", "Continuity ao longo do dia", "Coordenação com equipa"],
+    desc: "Maquilhagem para editoriais, campanhas e produções.",
+    bullets: ["Direção de beleza", "Beauty e body", "Continuidade ao longo do dia", "Trabalho com equipa"],
     duration: "Sob consulta",
-    ideal: "Marcas, fotógrafos e criadores.",
+    ideal: "Marcas, fotógrafos e revistas.",
   },
   {
     n: "04",
-    title: "Eventos & Ocasiões",
+    title: "Eventos e Ocasiões",
     img: lipstickImg.url,
-    desc: "Galas, batizados, formaturas e momentos que merecem ser vividos em toda a sua elegância.",
-    bullets: ["Look personalizado", "Aconselhamento de estilo", "Produtos long-wear", "Sessão calma"],
+    desc: "Maquilhagem para festas, batizados, formaturas e sessões de fotos.",
+    bullets: ["Look à sua medida", "Aconselhamento simples", "Produtos de longa duração", "Sessão calma"],
     duration: "1h30",
-    ideal: "Ocasiões especiais e retratos.",
+    ideal: "Momentos especiais.",
   },
 ];
 
@@ -288,13 +283,13 @@ function Services() {
             <Reveal><p className="eyebrow">Serviços</p></Reveal>
             <Reveal delay={0.1}>
               <h2 className="mt-6 max-w-2xl font-serif text-4xl leading-[1.05] md:text-6xl">
-                Uma abordagem <em className="italic text-champagne-deep">única</em> para cada mulher.
+                Serviços.
               </h2>
             </Reveal>
           </div>
           <Reveal delay={0.2}>
             <p className="max-w-sm text-muted-ink">
-              Quatro caminhos, uma mesma exigência: fazê-la sentir irrepetível.
+              Maquilhagem pensada para cada momento.
             </p>
           </Reveal>
         </div>
@@ -334,7 +329,7 @@ function Services() {
                     <span className="text-right normal-case tracking-normal">{s.ideal}</span>
                   </div>
                   <a href={WHATSAPP} target="_blank" rel="noopener" className="mt-8 inline-flex items-center gap-2 text-sm uppercase tracking-[0.16em] text-ink link-underline">
-                    Reservar <span aria-hidden>→</span>
+                    Marcar <span aria-hidden>→</span>
                   </a>
                 </div>
               </article>
@@ -377,7 +372,7 @@ function Portfolio() {
           <Reveal><p className="eyebrow">Portfólio</p></Reveal>
           <Reveal delay={0.1}>
             <h2 className="mt-6 max-w-2xl font-serif text-4xl leading-[1.05] md:text-6xl">
-              Momentos que <em className="italic text-champagne-deep">permanecem</em>.
+              Trabalhos.
             </h2>
           </Reveal>
         </div>
@@ -456,12 +451,12 @@ function Portfolio() {
 
 /* ---------------- WHY ME ---------------- */
 const reasons = [
-  { t: "Produtos Premium", d: "Marcas de luxo internacionais, testadas e selecionadas para longa duração." },
-  { t: "Serviço Personalizado", d: "Consulta prévia detalhada e prova para desenhar o seu look ideal." },
-  { t: "Ao seu Domicílio", d: "Deslocação a vilas, hotéis, quintas e cenários do Algarve." },
-  { t: "Casamentos Destino", d: "Fluente em português, inglês e experiência com noivas internacionais." },
-  { t: "Longa Duração", d: "Técnicas profissionais e produtos long-wear para durar até ao último brinde." },
-  { t: "Atenção ao Detalhe", d: "Uma obsessão silenciosa por cada pincelada, cada textura, cada acabamento." },
+  { t: "Produtos de qualidade", d: "Marcas profissionais escolhidas para cada pele e para durar o dia todo." },
+  { t: "Serviço próximo", d: "Consulta prévia e prova para desenharmos o look juntas." },
+  { t: "Deslocação", d: "Vou ao seu hotel, casa ou local do evento em qualquer ponto do Algarve." },
+  { t: "Português e inglês", d: "Trabalho com clientes nacionais e internacionais." },
+  { t: "Longa duração", d: "Técnica e produtos pensados para aguentar o dia inteiro." },
+  { t: "Atenção ao detalhe", d: "Cada pincelada com tempo e cuidado." },
 ];
 
 function WhyMe() {
@@ -469,10 +464,10 @@ function WhyMe() {
     <section className="border-y border-line bg-cream py-24 md:py-40">
       <div className="mx-auto max-w-[1280px] px-6 md:px-10">
         <div className="mb-20 max-w-3xl">
-          <Reveal><p className="eyebrow">Porquê Nicole</p></Reveal>
+          <Reveal><p className="eyebrow">Como trabalho</p></Reveal>
           <Reveal delay={0.1}>
             <h2 className="mt-6 font-serif text-4xl leading-[1.05] md:text-6xl">
-              Uma promessa <em className="italic text-champagne-deep">silenciosa</em> de excelência.
+              Como <em className="italic text-champagne-deep">trabalho</em>.
             </h2>
           </Reveal>
         </div>
@@ -496,11 +491,11 @@ function WhyMe() {
 
 /* ---------------- PROCESS ---------------- */
 const steps = [
-  { n: "01", t: "Reserva", d: "Contacto via WhatsApp, verificação de disponibilidade e reserva da data." },
-  { n: "02", t: "Consulta", d: "Conversa detalhada sobre o seu estilo, vestido, tom de pele e desejos." },
-  { n: "03", t: "Preparação", d: "Prova de maquilhagem, ajustes finos e definição do look final." },
-  { n: "04", t: "O Dia", d: "Chegada pontual, ambiente calmo, maquilhagem sem pressas no seu espaço." },
-  { n: "05", t: "Resultado", d: "Uma versão sua, luminosa e confiante — pronta para ser fotografada." },
+  { n: "01", t: "Contacto", d: "Fala comigo pelo WhatsApp. Vemos disponibilidade e detalhes." },
+  { n: "02", t: "Consulta", d: "Conversamos sobre o seu estilo, evento e preferências." },
+  { n: "03", t: "Prova", d: "Fazemos uma prova para acertar o look final." },
+  { n: "04", t: "No dia", d: "Chego a horas, com calma, no seu espaço." },
+  { n: "05", t: "Resultado", d: "Uma maquilhagem bonita, sua, feita para durar." },
 ];
 
 function Process() {
@@ -510,7 +505,7 @@ function Process() {
         <Reveal><p className="eyebrow">Processo</p></Reveal>
         <Reveal delay={0.1}>
           <h2 className="mt-6 font-serif text-4xl leading-[1.05] md:text-6xl">
-            Do primeiro <em className="italic text-champagne-deep">olá</em> ao último olhar.
+            Como <em className="italic text-champagne-deep">funciona</em>.
           </h2>
         </Reveal>
       </div>
@@ -538,24 +533,24 @@ function Process() {
 /* ---------------- TESTIMONIALS ---------------- */
 const testimonials = [
   {
-    q: "A Nicole transformou o meu dia numa memória perfeita. A maquilhagem durou do amanhecer até à última dança — e senti-me eu, apenas mais luminosa.",
+    q: "A minha maquilhagem durou do início ao fim do dia. Senti-me eu, com mais luz.",
     a: "Beatriz M.",
     r: "Noiva, Vilamoura",
   },
   {
-    q: "Uma profissional excecional. Discreta, precisa e generosa. Voámos de Londres e o resultado superou tudo o que tínhamos visto no Instagram.",
+    q: "Profissional, calma e atenta. Viemos de Londres e o resultado foi melhor do que esperávamos.",
     a: "Charlotte R.",
-    r: "Destination Wedding, Lagos",
+    r: "Casamento, Lagos",
   },
   {
-    q: "Trabalhei com muitas maquilhadoras em editoriais. A Nicole tem um olhar diferente — sabe exatamente onde parar. Isso é ouro.",
+    q: "Já trabalhei com várias maquilhadoras. A Nicole sabe onde parar.",
     a: "Inês F.",
-    r: "Editora de Moda",
+    r: "Editora de moda",
   },
   {
-    q: "Contratei-a para a gala da empresa e recebi elogios a noite inteira. Marcou-me a atenção ao detalhe e a calma que trouxe ao camarim.",
+    q: "Contratei-a para uma gala e recebi elogios a noite toda.",
     a: "Sofia A.",
-    r: "Evento Corporativo, Faro",
+    r: "Evento, Faro",
   },
 ];
 
@@ -617,12 +612,12 @@ function Testimonials() {
 
 /* ---------------- FAQ ---------------- */
 const faqs = [
-  { q: "Como faço a reserva?", a: "A forma mais simples é pelo WhatsApp. Respondo em poucas horas e enviamos disponibilidade e detalhes personalizados." },
-  { q: "Trabalha em toda a região do Algarve?", a: "Sim, desloco-me a toda a região — de Sagres a Vila Real de Santo António — incluindo vilas privadas, resorts e hotéis." },
-  { q: "Faz maquilhagem para casamentos internacionais?", a: "Absolutamente. Trabalho regularmente com noivas de Inglaterra, Alemanha, França e EUA em casamentos de destino no Algarve." },
-  { q: "É necessário fazer prova de maquilhagem?", a: "Recomendo vivamente para noivas. É um momento íntimo para desenharmos juntas o look e garantirmos que se sente perfeita." },
-  { q: "Quanto tempo antes devo reservar?", a: "Para épocas altas (Maio a Setembro), recomendo reservar com 6 a 12 meses de antecedência." },
-  { q: "Que produtos utiliza?", a: "Trabalho com marcas premium internacionais — Dior, Chanel, Charlotte Tilbury, Hourglass, Pat McGrath, entre outras — selecionadas para cada tipo de pele." },
+  { q: "Como marco?", a: "Envie mensagem no WhatsApp. Respondo no próprio dia com disponibilidade e valores." },
+  { q: "Trabalha em todo o Algarve?", a: "Sim. De Sagres a Vila Real de Santo António, incluindo vilas, hotéis e quintas." },
+  { q: "Faz casamentos internacionais?", a: "Sim. Trabalho com clientes de Portugal, Reino Unido, Alemanha, França e Estados Unidos." },
+  { q: "É preciso fazer prova de maquilhagem?", a: "Para noivas, recomendo. Para outros eventos, é opcional." },
+  { q: "Com quanto tempo devo marcar?", a: "De maio a setembro, o ideal é marcar com 6 a 12 meses de antecedência." },
+  { q: "Que produtos usa?", a: "Marcas profissionais como Dior, Chanel, Charlotte Tilbury, Hourglass e Pat McGrath, escolhidas para cada pele." },
 ];
 
 function FAQ() {
@@ -638,7 +633,7 @@ function FAQ() {
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-6 text-muted-ink">
-              Não encontrou a sua resposta?{" "}
+              Não encontra a resposta?{" "}
               <a href={WHATSAPP} target="_blank" rel="noopener" className="link-underline text-ink">
                 Envie mensagem
               </a>
@@ -682,25 +677,24 @@ function FinalCTA() {
       </div>
       <div className="relative mx-auto max-w-[1280px] px-6 py-32 md:px-10 md:py-48">
         <div className="max-w-2xl">
-          <Reveal><p className="eyebrow" style={{ color: "rgba(255,255,255,0.85)" }}>Reservas Abertas</p></Reveal>
+          <Reveal><p className="eyebrow" style={{ color: "rgba(255,255,255,0.85)" }}>Marcações abertas</p></Reveal>
           <Reveal delay={0.1}>
             <h2 className="mt-6 font-serif text-5xl leading-[1.03] text-white md:text-7xl lg:text-[88px]">
-              Vamos criar algo <em className="italic text-champagne">seu</em>.
+              Vamos <em className="italic text-champagne">falar</em>.
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-8 max-w-lg text-lg leading-relaxed text-white/85">
-              Datas limitadas por mês. Envie mensagem e desenhamos juntas a experiência
-              perfeita para o seu momento.
+              Poucas datas por mês. Envie mensagem para verificar disponibilidade.
             </p>
           </Reveal>
           <Reveal delay={0.3}>
             <div className="mt-12 flex flex-wrap gap-4">
               <a href={WHATSAPP} target="_blank" rel="noopener" className="btn-primary bg-white text-ink border-white hover:bg-champagne-deep hover:border-champagne-deep hover:text-white">
-                Reservar no WhatsApp
+                Marcar no WhatsApp
               </a>
               <a href="mailto:hello@nicolemartins.pt" className="btn-ghost text-white border-white/70 hover:bg-white hover:text-ink">
-                Enviar Email
+                Enviar email
               </a>
             </div>
           </Reveal>
@@ -721,7 +715,7 @@ function Footer() {
               Nicole <span className="italic text-champagne-deep">Martins</span>
             </p>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-ink">
-              Maquilhagem profissional de luxo — Algarve, Portugal.
+              Maquilhagem profissional no Algarve.
             </p>
           </div>
           <div>
@@ -740,7 +734,7 @@ function Footer() {
         </div>
         <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-line pt-8 text-xs text-muted-ink md:flex-row md:items-center">
           <p>© {new Date().getFullYear()} Nicole Martins. Todos os direitos reservados.</p>
-          <p className="italic font-serif">Crafted with care in Algarve.</p>
+          <p className="italic font-serif">Feito com cuidado no Algarve.</p>
         </div>
       </div>
     </footer>

@@ -677,25 +677,24 @@ function FinalCTA() {
       </div>
       <div className="relative mx-auto max-w-[1280px] px-6 py-32 md:px-10 md:py-48">
         <div className="max-w-2xl">
-          <Reveal><p className="eyebrow" style={{ color: "rgba(255,255,255,0.85)" }}>Reservas Abertas</p></Reveal>
+          <Reveal><p className="eyebrow" style={{ color: "rgba(255,255,255,0.85)" }}>Marcações abertas</p></Reveal>
           <Reveal delay={0.1}>
             <h2 className="mt-6 font-serif text-5xl leading-[1.03] text-white md:text-7xl lg:text-[88px]">
-              Vamos criar algo <em className="italic text-champagne">seu</em>.
+              Vamos <em className="italic text-champagne">falar</em>.
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-8 max-w-lg text-lg leading-relaxed text-white/85">
-              Datas limitadas por mês. Envie mensagem e desenhamos juntas a experiência
-              perfeita para o seu momento.
+              Poucas datas por mês. Envie mensagem para verificar disponibilidade.
             </p>
           </Reveal>
           <Reveal delay={0.3}>
             <div className="mt-12 flex flex-wrap gap-4">
               <a href={WHATSAPP} target="_blank" rel="noopener" className="btn-primary bg-white text-ink border-white hover:bg-champagne-deep hover:border-champagne-deep hover:text-white">
-                Reservar no WhatsApp
+                Marcar no WhatsApp
               </a>
               <a href="mailto:hello@nicolemartins.pt" className="btn-ghost text-white border-white/70 hover:bg-white hover:text-ink">
-                Enviar Email
+                Enviar email
               </a>
             </div>
           </Reveal>

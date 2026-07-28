@@ -722,8 +722,8 @@ function Footer() {
             <p className="eyebrow">Contacto</p>
             <ul className="mt-6 space-y-3 text-sm text-ink">
               <li><a href={WHATSAPP} target="_blank" rel="noopener" className="link-underline">WhatsApp</a></li>
-              <li><a href="mailto:hello@nicolemartins.pt" className="link-underline">hello@nicolemartins.pt</a></li>
-              <li><a href="https://instagram.com" target="_blank" rel="noopener" className="link-underline">Instagram</a></li>
+              <li><a href="tel:+351968776015" className="link-underline">+351 968 776 015</a></li>
+              <li><a href={INSTAGRAM} target="_blank" rel="noopener" className="link-underline">@nicoleemartins.algarve</a></li>
             </ul>
           </div>
           <div>

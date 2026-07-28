@@ -197,25 +197,19 @@ function About() {
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="mt-6 font-serif text-4xl leading-[1.05] md:text-5xl lg:text-6xl">
-              Beleza <em className="italic text-champagne-deep">discreta</em>.
-              <br />
-              Presença inesquecível.
+              Sobre <em className="italic text-champagne-deep">mim</em>.
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
             <div className="mt-10 space-y-6 text-base leading-relaxed text-muted-ink md:text-lg">
               <p>
-                Sou a Nicole. Há mais de uma década que faço da maquilhagem uma arte silenciosa —
-                aquela que realça sem esconder, que traduz personalidade em vez de a substituir.
+                Sou a Nicole. Faço maquilhagem profissional há mais de dez anos.
               </p>
               <p>
-                Trabalho lado a lado com noivas, editoriais de moda e mulheres que celebram
-                momentos únicos por todo o Algarve. Cada rosto é um estudo. Cada olhar,
-                uma decisão pensada ao milímetro.
+                Trabalho com noivas, eventos e sessões fotográficas em toda a região do Algarve.
               </p>
               <p>
-                Produtos premium selecionados. Consulta prévia detalhada. Um dia sem pressas,
-                onde a única prioridade é você sentir-se absolutamente confiante.
+                Uso produtos de qualidade e adapto cada maquilhagem à pessoa que tenho à frente.
               </p>
             </div>
           </Reveal>
@@ -224,7 +218,7 @@ function About() {
             <div className="mt-14 grid grid-cols-3 gap-8 border-t border-line pt-10">
               {[
                 { n: "10+", l: "Anos de experiência" },
-                { n: "300+", l: "Noivas maquilhadas" },
+                { n: "300+", l: "Noivas" },
                 { n: "40+", l: "Casamentos destino" },
               ].map((s) => (
                 <div key={s.l}>

@@ -99,7 +99,7 @@ function Hero() {
           className="eyebrow text-white/90"
           style={{ color: "rgba(255,255,255,0.9)" }}
         >
-          Maquilhadora Profissional · Algarve
+          Maquilhadora · Algarve
         </motion.p>
 
         <motion.h1
@@ -108,7 +108,7 @@ function Hero() {
           transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mt-6 max-w-4xl font-serif text-[44px] leading-[1.02] text-white sm:text-6xl md:text-7xl lg:text-[88px]"
         >
-          A beleza que sempre <em className="italic text-champagne">imaginou</em>, no dia mais importante.
+          Maquilhagem para o seu <em className="italic text-champagne">dia</em>.
         </motion.h1>
 
         <motion.p
@@ -117,8 +117,9 @@ function Hero() {
           transition={{ duration: 1, delay: 1 }}
           className="mt-8 max-w-xl text-base leading-relaxed text-white/85 md:text-lg"
         >
-          Maquilhagem editorial e nupcial para mulheres exigentes. Uma experiência íntima,
-          discreta e absolutamente sua — do primeiro pincelar ao último olhar.
+          Noivas, eventos e sessões fotográficas.
+          <br />
+          Trabalho em toda a região do Algarve.
         </motion.p>
 
         <motion.div
@@ -128,10 +129,10 @@ function Hero() {
           className="mt-10 flex flex-wrap items-center gap-4"
         >
           <a href={WHATSAPP} target="_blank" rel="noopener" className="btn-primary bg-white text-ink border-white hover:bg-champagne-deep hover:text-white hover:border-champagne-deep">
-            Reservar no WhatsApp
+            Marcar no WhatsApp
           </a>
           <a href="#portfolio" className="btn-ghost text-white border-white/80 hover:bg-white hover:text-ink">
-            Ver Portfólio
+            Ver trabalhos
           </a>
         </motion.div>
       </div>

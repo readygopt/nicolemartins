@@ -533,24 +533,24 @@ function Process() {
 /* ---------------- TESTIMONIALS ---------------- */
 const testimonials = [
   {
-    q: "A Nicole transformou o meu dia numa memória perfeita. A maquilhagem durou do amanhecer até à última dança — e senti-me eu, apenas mais luminosa.",
+    q: "A minha maquilhagem durou do início ao fim do dia. Senti-me eu, com mais luz.",
     a: "Beatriz M.",
     r: "Noiva, Vilamoura",
   },
   {
-    q: "Uma profissional excecional. Discreta, precisa e generosa. Voámos de Londres e o resultado superou tudo o que tínhamos visto no Instagram.",
+    q: "Profissional, calma e atenta. Viemos de Londres e o resultado foi melhor do que esperávamos.",
     a: "Charlotte R.",
-    r: "Destination Wedding, Lagos",
+    r: "Casamento, Lagos",
   },
   {
-    q: "Trabalhei com muitas maquilhadoras em editoriais. A Nicole tem um olhar diferente — sabe exatamente onde parar. Isso é ouro.",
+    q: "Já trabalhei com várias maquilhadoras. A Nicole sabe onde parar.",
     a: "Inês F.",
-    r: "Editora de Moda",
+    r: "Editora de moda",
   },
   {
-    q: "Contratei-a para a gala da empresa e recebi elogios a noite inteira. Marcou-me a atenção ao detalhe e a calma que trouxe ao camarim.",
+    q: "Contratei-a para uma gala e recebi elogios a noite toda.",
     a: "Sofia A.",
-    r: "Evento Corporativo, Faro",
+    r: "Evento, Faro",
   },
 ];
 

@@ -90,4 +90,4 @@ export function Nav() {
   );
 }
 
-export { WHATSAPP };
+export { WHATSAPP, INSTAGRAM };

@@ -7,7 +7,7 @@ export function WhatsAppFloat() {
       href={WHATSAPP}
       target="_blank"
       rel="noopener"
-      aria-label="Reservar pelo WhatsApp"
+      aria-label="Marcar pelo WhatsApp"
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 1.5, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}

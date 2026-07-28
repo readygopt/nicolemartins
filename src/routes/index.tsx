@@ -372,7 +372,7 @@ function Portfolio() {
           <Reveal><p className="eyebrow">Portfólio</p></Reveal>
           <Reveal delay={0.1}>
             <h2 className="mt-6 max-w-2xl font-serif text-4xl leading-[1.05] md:text-6xl">
-              Momentos que <em className="italic text-champagne-deep">permanecem</em>.
+              Trabalhos.
             </h2>
           </Reveal>
         </div>

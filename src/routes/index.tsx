@@ -612,12 +612,12 @@ function Testimonials() {
 
 /* ---------------- FAQ ---------------- */
 const faqs = [
-  { q: "Como faço a reserva?", a: "A forma mais simples é pelo WhatsApp. Respondo em poucas horas e enviamos disponibilidade e detalhes personalizados." },
-  { q: "Trabalha em toda a região do Algarve?", a: "Sim, desloco-me a toda a região — de Sagres a Vila Real de Santo António — incluindo vilas privadas, resorts e hotéis." },
-  { q: "Faz maquilhagem para casamentos internacionais?", a: "Absolutamente. Trabalho regularmente com noivas de Inglaterra, Alemanha, França e EUA em casamentos de destino no Algarve." },
-  { q: "É necessário fazer prova de maquilhagem?", a: "Recomendo vivamente para noivas. É um momento íntimo para desenharmos juntas o look e garantirmos que se sente perfeita." },
-  { q: "Quanto tempo antes devo reservar?", a: "Para épocas altas (Maio a Setembro), recomendo reservar com 6 a 12 meses de antecedência." },
-  { q: "Que produtos utiliza?", a: "Trabalho com marcas premium internacionais — Dior, Chanel, Charlotte Tilbury, Hourglass, Pat McGrath, entre outras — selecionadas para cada tipo de pele." },
+  { q: "Como marco?", a: "Envie mensagem no WhatsApp. Respondo no próprio dia com disponibilidade e valores." },
+  { q: "Trabalha em todo o Algarve?", a: "Sim. De Sagres a Vila Real de Santo António, incluindo vilas, hotéis e quintas." },
+  { q: "Faz casamentos internacionais?", a: "Sim. Trabalho com clientes de Portugal, Reino Unido, Alemanha, França e Estados Unidos." },
+  { q: "É preciso fazer prova de maquilhagem?", a: "Para noivas, recomendo. Para outros eventos, é opcional." },
+  { q: "Com quanto tempo devo marcar?", a: "De maio a setembro, o ideal é marcar com 6 a 12 meses de antecedência." },
+  { q: "Que produtos usa?", a: "Marcas profissionais como Dior, Chanel, Charlotte Tilbury, Hourglass e Pat McGrath, escolhidas para cada pele." },
 ];
 
 function FAQ() {

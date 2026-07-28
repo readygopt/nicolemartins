@@ -48,7 +48,7 @@ export function Nav() {
           ))}
         </nav>
         <a href={WHATSAPP} target="_blank" rel="noopener" className="hidden btn-primary lg:inline-flex">
-          Reservar
+          Marcar
         </a>
         <button
           aria-label="Abrir menu"

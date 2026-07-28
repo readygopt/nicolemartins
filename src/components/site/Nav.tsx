@@ -10,7 +10,8 @@ const links = [
   { href: "#faq", label: "FAQ" },
 ];
 
-const WHATSAPP = "https://wa.me/351910000000?text=Ol%C3%A1%20Nicole%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20seus%20servi%C3%A7os%20de%20maquilhagem.";
+const WHATSAPP = "https://wa.me/351968776015?text=Ol%C3%A1%20Nicole%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20seus%20servi%C3%A7os%20de%20maquilhagem.";
+const INSTAGRAM = "https://www.instagram.com/nicoleemartins.algarve/";
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
@@ -89,4 +90,4 @@ export function Nav() {
   );
 }
 
-export { WHATSAPP };
+export { WHATSAPP, INSTAGRAM };

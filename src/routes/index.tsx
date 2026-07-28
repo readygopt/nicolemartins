@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
-import { Nav, WHATSAPP } from "@/components/site/Nav";
+import { Nav, WHATSAPP, INSTAGRAM } from "@/components/site/Nav";
 import { Reveal } from "@/components/site/Reveal";
 import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import {
@@ -404,7 +404,7 @@ function Portfolio() {
             >
               <img
                 src={p.src}
-                alt={`Portfólio Nicole Martins — ${p.cat}`}
+                alt={`Portfólio Nicole Martins, ${p.cat}`}
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-[1.6s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
               />
@@ -693,8 +693,8 @@ function FinalCTA() {
               <a href={WHATSAPP} target="_blank" rel="noopener" className="btn-primary bg-white text-ink border-white hover:bg-champagne-deep hover:border-champagne-deep hover:text-white">
                 Marcar no WhatsApp
               </a>
-              <a href="mailto:hello@nicolemartins.pt" className="btn-ghost text-white border-white/70 hover:bg-white hover:text-ink">
-                Enviar email
+              <a href={INSTAGRAM} target="_blank" rel="noopener" className="btn-ghost text-white border-white/70 hover:bg-white hover:text-ink">
+                Instagram
               </a>
             </div>
           </Reveal>
@@ -722,8 +722,8 @@ function Footer() {
             <p className="eyebrow">Contacto</p>
             <ul className="mt-6 space-y-3 text-sm text-ink">
               <li><a href={WHATSAPP} target="_blank" rel="noopener" className="link-underline">WhatsApp</a></li>
-              <li><a href="mailto:hello@nicolemartins.pt" className="link-underline">hello@nicolemartins.pt</a></li>
-              <li><a href="https://instagram.com" target="_blank" rel="noopener" className="link-underline">Instagram</a></li>
+              <li><a href="tel:+351968776015" className="link-underline">+351 968 776 015</a></li>
+              <li><a href={INSTAGRAM} target="_blank" rel="noopener" className="link-underline">@nicoleemartins.algarve</a></li>
             </ul>
           </div>
           <div>

@@ -633,7 +633,7 @@ function FAQ() {
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-6 text-muted-ink">
-              Não encontrou a sua resposta?{" "}
+              Não encontra a resposta?{" "}
               <a href={WHATSAPP} target="_blank" rel="noopener" className="link-underline text-ink">
                 Envie mensagem
               </a>

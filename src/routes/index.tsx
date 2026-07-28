@@ -12,14 +12,14 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 
-import heroImg from "@/assets/powder-sunset.jpg.asset.json";
-import portraitImg from "@/assets/estetica.jpg.asset.json";
-import lipstickImg from "@/assets/lipstick.jpg.asset.json";
-import laughing1 from "@/assets/laughing-bride.jpg.asset.json";
-import laughing2 from "@/assets/laughing-bride-2.jpg.asset.json";
-import brideAdjust from "@/assets/bride-adjust.jpg.asset.json";
-import powderBeach from "@/assets/powder-beach.jpg.asset.json";
-import eventoImg from "@/assets/evento.jpg.asset.json";
+import heroImg from "@/assets/powder-sunset.jpg";
+import portraitImg from "@/assets/estetica.jpg";
+import lipstickImg from "@/assets/lipstick.jpg";
+import laughing1 from "@/assets/laughing-bride.jpg";
+import laughing2 from "@/assets/laughing-bride-2.jpg";
+import brideAdjust from "@/assets/bride-adjust.jpg";
+import powderBeach from "@/assets/powder-beach.jpg";
+import eventoImg from "@/assets/evento.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -39,7 +39,7 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
           name: "Nicole Martins Makeup Artist",
-          image: heroImg.url,
+          image: heroImg,
           description:
             "Maquilhadora profissional no Algarve. Noivas, eventos e sessões fotográficas.",
           areaServed: "Algarve, Portugal",
@@ -92,7 +92,7 @@ function Hero() {
     <section ref={ref} className="relative h-[100dvh] w-full overflow-hidden">
       <motion.div style={{ y, scale }} className="absolute inset-0">
         <img
-          src={heroImg.url}
+          src={heroImg}
           alt="Nicole Martins"
           className="h-full w-full object-cover"
           fetchPriority="high"
@@ -176,7 +176,7 @@ function About() {
         <Reveal className="lg:col-span-5">
           <div className="relative aspect-[4/5] overflow-hidden rounded-lg">
             <img
-              src={portraitImg.url}
+              src={portraitImg}
               alt="Nicole Martins"
               loading="lazy"
               className="h-full w-full object-cover"
@@ -222,7 +222,7 @@ function About() {
 }
 
 /* ---------------- SERVICES ---------------- */
-const serviceImages = [laughing2.url, powderBeach.url, eventoImg.url, lipstickImg.url];
+const serviceImages = [laughing2, powderBeach, eventoImg, lipstickImg];
 
 function Services() {
   const { t } = useI18n();
@@ -287,14 +287,14 @@ function Services() {
 
 /* ---------------- PORTFOLIO ---------------- */
 const portfolio = [
-  { src: laughing2.url, ratio: "aspect-[3/4]", catIdx: 1 },
-  { src: powderBeach.url, ratio: "aspect-[4/5]", catIdx: 2 },
-  { src: eventoImg.url, ratio: "aspect-[3/4]", catIdx: 3 },
-  { src: brideAdjust.url, ratio: "aspect-[3/4]", catIdx: 1 },
-  { src: lipstickImg.url, ratio: "aspect-[4/3]", catIdx: 4 },
-  { src: laughing1.url, ratio: "aspect-[16/10]", catIdx: 1 },
-  { src: powderBeach.url, ratio: "aspect-[3/4]", catIdx: 2 },
-  { src: portraitImg.url, ratio: "aspect-[4/5]", catIdx: 5 },
+  { src: laughing2, ratio: "aspect-[3/4]", catIdx: 1 },
+  { src: powderBeach, ratio: "aspect-[4/5]", catIdx: 2 },
+  { src: eventoImg, ratio: "aspect-[3/4]", catIdx: 3 },
+  { src: brideAdjust, ratio: "aspect-[3/4]", catIdx: 1 },
+  { src: lipstickImg, ratio: "aspect-[4/3]", catIdx: 4 },
+  { src: laughing1, ratio: "aspect-[16/10]", catIdx: 1 },
+  { src: powderBeach, ratio: "aspect-[3/4]", catIdx: 2 },
+  { src: portraitImg, ratio: "aspect-[4/5]", catIdx: 5 },
 ];
 
 function Portfolio() {
@@ -573,7 +573,7 @@ function FinalCTA() {
     <section className="relative overflow-hidden">
       <div className="absolute inset-0">
         <img
-          src={laughing1.url}
+          src={laughing1}
           alt=""
           loading="lazy"
           className="h-full w-full object-cover"

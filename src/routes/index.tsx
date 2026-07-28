@@ -404,7 +404,7 @@ function Portfolio() {
             >
               <img
                 src={p.src}
-                alt={`Portfólio Nicole Martins — ${p.cat}`}
+                alt={`Portfólio Nicole Martins, ${p.cat}`}
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-[1.6s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
               />

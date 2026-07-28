@@ -316,14 +316,6 @@ function Services() {
                     <span className="font-serif text-sm italic text-champagne-deep">{s.n}</span>
                   </div>
                   <p className="mt-4 text-muted-ink leading-relaxed">{s.desc}</p>
-                  <ul className="mt-6 space-y-2 text-sm text-ink/80">
-                    {s.bullets.map((b) => (
-                      <li key={b} className="flex items-start gap-3">
-                        <span className="mt-2 h-px w-4 shrink-0 bg-champagne" />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
                   <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-line pt-6 text-xs uppercase tracking-[0.14em] text-muted-ink">
                     <span>{s.duration}</span>
                     <span className="text-right normal-case tracking-normal">{s.ideal}</span>

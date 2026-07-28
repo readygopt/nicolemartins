@@ -734,7 +734,7 @@ function Footer() {
         </div>
         <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-line pt-8 text-xs text-muted-ink md:flex-row md:items-center">
           <p>© {new Date().getFullYear()} Nicole Martins. Todos os direitos reservados.</p>
-          <p className="italic font-serif">Crafted with care in Algarve.</p>
+          <p className="italic font-serif">Feito com cuidado no Algarve.</p>
         </div>
       </div>
     </footer>

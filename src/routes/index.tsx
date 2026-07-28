@@ -143,7 +143,7 @@ function Hero() {
         transition={{ delay: 1.6, duration: 1 }}
         className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-3"
       >
-        <span className="text-[10px] uppercase tracking-[0.3em] text-white/80">Descubra</span>
+        <span className="text-[10px] uppercase tracking-[0.3em] text-white/80">Ver mais</span>
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}

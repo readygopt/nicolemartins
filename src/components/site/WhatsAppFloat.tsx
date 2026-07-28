@@ -1,13 +1,15 @@
 import { motion } from "framer-motion";
 import { WHATSAPP } from "./Nav";
+import { useI18n } from "@/lib/i18n";
 
 export function WhatsAppFloat() {
+  const { t } = useI18n();
   return (
     <motion.a
       href={WHATSAPP}
       target="_blank"
       rel="noopener"
-      aria-label="Marcar pelo WhatsApp"
+      aria-label={t.whatsappAria}
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ delay: 1.5, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}

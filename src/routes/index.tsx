@@ -4,6 +4,7 @@ import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion"
 import { Nav, WHATSAPP, INSTAGRAM } from "@/components/site/Nav";
 import { Reveal } from "@/components/site/Reveal";
 import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
+import { I18nProvider, useI18n } from "@/lib/i18n";
 import {
   Accordion,
   AccordionContent,
@@ -48,8 +49,16 @@ export const Route = createFileRoute("/")({
       },
     ],
   }),
-  component: Home,
+  component: HomeWrapper,
 });
+
+function HomeWrapper() {
+  return (
+    <I18nProvider>
+      <Home />
+    </I18nProvider>
+  );
+}
 
 function Home() {
   return (
@@ -77,13 +86,14 @@ function Hero() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "18%"]);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
+  const { t } = useI18n();
 
   return (
     <section ref={ref} className="relative h-[100dvh] w-full overflow-hidden">
       <motion.div style={{ y, scale }} className="absolute inset-0">
         <img
           src={heroImg.url}
-          alt="Nicole Martins a maquilhar uma noiva ao pôr-do-sol no Algarve"
+          alt="Nicole Martins"
           className="h-full w-full object-cover"
           fetchPriority="high"
         />
@@ -99,7 +109,7 @@ function Hero() {
           className="eyebrow text-white/90"
           style={{ color: "rgba(255,255,255,0.9)" }}
         >
-          Maquilhadora · Algarve
+          {t.hero.eyebrow}
         </motion.p>
 
         <motion.h1
@@ -108,7 +118,7 @@ function Hero() {
           transition={{ duration: 1.2, delay: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mt-6 max-w-4xl font-serif text-[44px] leading-[1.02] text-white sm:text-6xl md:text-7xl lg:text-[88px]"
         >
-          Maquilhagem para o seu <em className="italic text-champagne">dia</em>.
+          {t.hero.titleA}<em className="italic text-champagne">{t.hero.titleEm}</em>{t.hero.titleB}
         </motion.h1>
 
         <motion.p
@@ -117,9 +127,9 @@ function Hero() {
           transition={{ duration: 1, delay: 1 }}
           className="mt-8 max-w-xl text-base leading-relaxed text-white/85 md:text-lg"
         >
-          Noivas, eventos e sessões fotográficas.
+          {t.hero.sub1}
           <br />
-          Trabalho em toda a região do Algarve.
+          {t.hero.sub2}
         </motion.p>
 
         <motion.div
@@ -129,14 +139,13 @@ function Hero() {
           className="mt-10 flex flex-wrap items-center gap-4"
         >
           <a href={WHATSAPP} target="_blank" rel="noopener" className="btn-primary bg-white text-ink border-white hover:bg-champagne-deep hover:text-white hover:border-champagne-deep">
-            Marcar no WhatsApp
+            {t.hero.ctaMarcar}
           </a>
           <a href="#portfolio" className="btn-ghost text-white border-white/80 hover:bg-white hover:text-ink">
-            Ver trabalhos
+            {t.hero.ctaVer}
           </a>
         </motion.div>
       </div>
-
     </section>
   );
 }
@@ -160,6 +169,7 @@ function Marquee() {
 
 /* ---------------- ABOUT ---------------- */
 function About() {
+  const { t } = useI18n();
   return (
     <section id="sobre" className="mx-auto max-w-[1280px] px-6 py-24 md:px-10 md:py-40">
       <div className="grid gap-16 lg:grid-cols-12 lg:gap-24">
@@ -167,7 +177,7 @@ function About() {
           <div className="relative aspect-[4/5] overflow-hidden rounded-lg">
             <img
               src={portraitImg.url}
-              alt="Retrato de Nicole Martins, maquilhadora profissional"
+              alt="Nicole Martins"
               loading="lazy"
               className="h-full w-full object-cover"
             />
@@ -180,34 +190,24 @@ function About() {
 
         <div className="lg:col-span-7 lg:pt-12">
           <Reveal>
-            <p className="eyebrow">Sobre</p>
+            <p className="eyebrow">{t.about.eyebrow}</p>
           </Reveal>
           <Reveal delay={0.1}>
             <h2 className="mt-6 font-serif text-4xl leading-[1.05] md:text-5xl lg:text-6xl">
-              Sobre <em className="italic text-champagne-deep">mim</em>.
+              {t.about.titleA}<em className="italic text-champagne-deep">{t.about.titleEm}</em>.
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
             <div className="mt-10 space-y-6 text-base leading-relaxed text-muted-ink md:text-lg">
-              <p>
-                Sou a Nicole. Faço maquilhagem profissional há mais de dez anos.
-              </p>
-              <p>
-                Trabalho com noivas, eventos e sessões fotográficas em toda a região do Algarve.
-              </p>
-              <p>
-                Uso produtos de qualidade e adapto cada maquilhagem à pessoa que tenho à frente.
-              </p>
+              <p>{t.about.p1}</p>
+              <p>{t.about.p2}</p>
+              <p>{t.about.p3}</p>
             </div>
           </Reveal>
 
           <Reveal delay={0.35}>
             <div className="mt-14 grid grid-cols-3 gap-8 border-t border-line pt-10">
-              {[
-                { n: "10+", l: "Anos de experiência" },
-                { n: "300+", l: "Noivas" },
-                { n: "40+", l: "Casamentos destino" },
-              ].map((s) => (
+              {t.about.stats.map((s) => (
                 <div key={s.l}>
                   <p className="font-serif text-4xl text-ink md:text-5xl">{s.n}</p>
                   <p className="mt-2 text-xs uppercase tracking-[0.16em] text-muted-ink">{s.l}</p>
@@ -222,98 +222,63 @@ function About() {
 }
 
 /* ---------------- SERVICES ---------------- */
-const services = [
-  {
-    n: "01",
-    title: "Noivas",
-    img: laughing2.url,
-    desc: "Maquilhagem para o dia do casamento. Natural, bonita e feita para durar.",
-    bullets: ["Consulta prévia", "Prova de maquilhagem", "Deslocação incluída", "Retoques ao longo do dia"],
-    duration: "3 a 4 horas",
-    ideal: "Noivas no Algarve.",
-  },
-  {
-    n: "02",
-    title: "Casamento Destino",
-    img: powderBeach.url,
-    desc: "Pacotes para casamentos em vilas, resorts e quintas do Algarve.",
-    bullets: ["Noiva e convidadas", "Prova personalizada", "Acompanhamento no dia", "Kit de retoques"],
-    duration: "Dia inteiro",
-    ideal: "Casamentos internacionais.",
-  },
-  {
-    n: "03",
-    title: "Editorial e Fashion",
-    img: eventoImg.url,
-    desc: "Maquilhagem para editoriais, campanhas e produções.",
-    bullets: ["Direção de beleza", "Beauty e body", "Continuidade ao longo do dia", "Trabalho com equipa"],
-    duration: "Sob consulta",
-    ideal: "Marcas, fotógrafos e revistas.",
-  },
-  {
-    n: "04",
-    title: "Eventos e Ocasiões",
-    img: lipstickImg.url,
-    desc: "Maquilhagem para festas, batizados, formaturas e sessões de fotos.",
-    bullets: ["Look à sua medida", "Aconselhamento simples", "Produtos de longa duração", "Sessão calma"],
-    duration: "1h30",
-    ideal: "Momentos especiais.",
-  },
-];
+const serviceImages = [laughing2.url, powderBeach.url, eventoImg.url, lipstickImg.url];
 
 function Services() {
+  const { t } = useI18n();
   return (
     <section id="servicos" className="bg-beige/50 py-24 md:py-40">
       <div className="mx-auto max-w-[1280px] px-6 md:px-10">
         <div className="mb-20 flex flex-col items-start justify-between gap-8 md:flex-row md:items-end">
           <div>
-            <Reveal><p className="eyebrow">Serviços</p></Reveal>
+            <Reveal><p className="eyebrow">{t.services.eyebrow}</p></Reveal>
             <Reveal delay={0.1}>
               <h2 className="mt-6 max-w-2xl font-serif text-4xl leading-[1.05] md:text-6xl">
-                Serviços.
+                {t.services.title}
               </h2>
             </Reveal>
           </div>
           <Reveal delay={0.2}>
-            <p className="max-w-sm text-muted-ink">
-              Maquilhagem pensada para cada momento.
-            </p>
+            <p className="max-w-sm text-muted-ink">{t.services.intro}</p>
           </Reveal>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2">
-          {services.map((s, i) => (
-            <Reveal key={s.title} delay={i * 0.08}>
-              <article className="group relative overflow-hidden rounded-lg bg-card border border-line transition-shadow duration-700 hover:shadow-[0_30px_80px_-30px_rgba(0,0,0,0.25)]">
-                <div className="relative aspect-[4/3] overflow-hidden">
-                  <motion.img
-                    src={s.img}
-                    alt={s.title}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
-                  <span className="absolute top-6 left-6 font-serif text-sm italic text-white opacity-0 transition-opacity duration-700 group-hover:opacity-100">
-                    {s.n}
-                  </span>
-                </div>
-                <div className="p-8 md:p-10">
-                  <div className="flex items-baseline justify-between gap-4">
-                    <h3 className="font-serif text-3xl md:text-4xl">{s.title}</h3>
-                    <span className="font-serif text-sm italic text-champagne-deep">{s.n}</span>
+          {t.services.items.map((s, i) => {
+            const n = String(i + 1).padStart(2, "0");
+            return (
+              <Reveal key={s.title} delay={i * 0.08}>
+                <article className="group relative overflow-hidden rounded-lg bg-card border border-line transition-shadow duration-700 hover:shadow-[0_30px_80px_-30px_rgba(0,0,0,0.25)]">
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <motion.img
+                      src={serviceImages[i]}
+                      alt={s.title}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-[1.4s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
+                    <span className="absolute top-6 left-6 font-serif text-sm italic text-white opacity-0 transition-opacity duration-700 group-hover:opacity-100">
+                      {n}
+                    </span>
                   </div>
-                  <p className="mt-4 text-muted-ink leading-relaxed">{s.desc}</p>
-                  <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-line pt-6 text-xs uppercase tracking-[0.14em] text-muted-ink">
-                    <span>{s.duration}</span>
-                    <span className="text-right normal-case tracking-normal">{s.ideal}</span>
+                  <div className="p-8 md:p-10">
+                    <div className="flex items-baseline justify-between gap-4">
+                      <h3 className="font-serif text-3xl md:text-4xl">{s.title}</h3>
+                      <span className="font-serif text-sm italic text-champagne-deep">{n}</span>
+                    </div>
+                    <p className="mt-4 text-muted-ink leading-relaxed">{s.desc}</p>
+                    <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-line pt-6 text-xs uppercase tracking-[0.14em] text-muted-ink">
+                      <span>{s.duration}</span>
+                      <span className="text-right normal-case tracking-normal">{s.ideal}</span>
+                    </div>
+                    <a href={WHATSAPP} target="_blank" rel="noopener" className="mt-8 inline-flex items-center gap-2 text-sm uppercase tracking-[0.16em] text-ink link-underline">
+                      {t.services.marcar} <span aria-hidden>→</span>
+                    </a>
                   </div>
-                  <a href={WHATSAPP} target="_blank" rel="noopener" className="mt-8 inline-flex items-center gap-2 text-sm uppercase tracking-[0.16em] text-ink link-underline">
-                    Marcar <span aria-hidden>→</span>
-                  </a>
-                </div>
-              </article>
-            </Reveal>
-          ))}
+                </article>
+              </Reveal>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -322,21 +287,22 @@ function Services() {
 
 /* ---------------- PORTFOLIO ---------------- */
 const portfolio = [
-  { src: laughing2.url, ratio: "aspect-[3/4]", cat: "Noivas" },
-  { src: powderBeach.url, ratio: "aspect-[4/5]", cat: "Destino" },
-  { src: eventoImg.url, ratio: "aspect-[3/4]", cat: "Editorial" },
-  { src: brideAdjust.url, ratio: "aspect-[3/4]", cat: "Noivas" },
-  { src: lipstickImg.url, ratio: "aspect-[4/3]", cat: "Eventos" },
-  { src: laughing1.url, ratio: "aspect-[16/10]", cat: "Noivas" },
-  { src: powderBeach.url, ratio: "aspect-[3/4]", cat: "Destino" },
-  { src: portraitImg.url, ratio: "aspect-[4/5]", cat: "Studio" },
+  { src: laughing2.url, ratio: "aspect-[3/4]", catIdx: 1 },
+  { src: powderBeach.url, ratio: "aspect-[4/5]", catIdx: 2 },
+  { src: eventoImg.url, ratio: "aspect-[3/4]", catIdx: 3 },
+  { src: brideAdjust.url, ratio: "aspect-[3/4]", catIdx: 1 },
+  { src: lipstickImg.url, ratio: "aspect-[4/3]", catIdx: 4 },
+  { src: laughing1.url, ratio: "aspect-[16/10]", catIdx: 1 },
+  { src: powderBeach.url, ratio: "aspect-[3/4]", catIdx: 2 },
+  { src: portraitImg.url, ratio: "aspect-[4/5]", catIdx: 5 },
 ];
 
 function Portfolio() {
-  const [filter, setFilter] = useState<string>("Todos");
+  const { t } = useI18n();
+  const [filterIdx, setFilterIdx] = useState(0);
   const [lightbox, setLightbox] = useState<string | null>(null);
-  const cats = ["Todos", "Noivas", "Destino", "Editorial", "Eventos", "Studio"];
-  const filtered = filter === "Todos" ? portfolio : portfolio.filter((p) => p.cat === filter);
+  const cats = t.portfolio.cats;
+  const filtered = filterIdx === 0 ? portfolio : portfolio.filter((p) => p.catIdx === filterIdx);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setLightbox(null);
@@ -348,21 +314,21 @@ function Portfolio() {
     <section id="portfolio" className="mx-auto max-w-[1280px] px-6 py-24 md:px-10 md:py-40">
       <div className="mb-16 flex flex-col items-start justify-between gap-10 md:flex-row md:items-end">
         <div>
-          <Reveal><p className="eyebrow">Portfólio</p></Reveal>
+          <Reveal><p className="eyebrow">{t.portfolio.eyebrow}</p></Reveal>
           <Reveal delay={0.1}>
             <h2 className="mt-6 max-w-2xl font-serif text-4xl leading-[1.05] md:text-6xl">
-              Trabalhos.
+              {t.portfolio.title}
             </h2>
           </Reveal>
         </div>
         <Reveal delay={0.2}>
           <div className="flex flex-wrap gap-2">
-            {cats.map((c) => (
+            {cats.map((c, idx) => (
               <button
                 key={c}
-                onClick={() => setFilter(c)}
+                onClick={() => setFilterIdx(idx)}
                 className={`rounded-full border px-4 py-2 text-[11px] uppercase tracking-[0.18em] transition-all ${
-                  filter === c
+                  filterIdx === idx
                     ? "border-ink bg-ink text-cream"
                     : "border-line text-muted-ink hover:border-ink hover:text-ink"
                 }`}
@@ -383,13 +349,13 @@ function Portfolio() {
             >
               <img
                 src={p.src}
-                alt={`Portfólio Nicole Martins, ${p.cat}`}
+                alt={cats[p.catIdx]}
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-[1.6s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
               <span className="absolute bottom-4 left-4 text-[11px] uppercase tracking-[0.2em] text-white opacity-0 transition-opacity duration-700 group-hover:opacity-100">
-                {p.cat}
+                {cats[p.catIdx]}
               </span>
             </button>
           </Reveal>
@@ -411,15 +377,15 @@ function Portfolio() {
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
               src={lightbox}
-              alt="Portfólio"
+              alt=""
               className="max-h-[90vh] max-w-[90vw] rounded-lg object-contain"
             />
             <button
               onClick={() => setLightbox(null)}
-              aria-label="Fechar"
+              aria-label={t.portfolio.close}
               className="absolute top-6 right-6 rounded-full border border-white/30 px-4 py-2 text-xs uppercase tracking-[0.2em] text-white hover:bg-white/10"
             >
-              Fechar
+              {t.portfolio.close}
             </button>
           </motion.div>
         )}
@@ -429,29 +395,21 @@ function Portfolio() {
 }
 
 /* ---------------- WHY ME ---------------- */
-const reasons = [
-  { t: "Produtos de qualidade", d: "Marcas profissionais escolhidas para cada pele e para durar o dia todo." },
-  { t: "Serviço próximo", d: "Consulta prévia e prova para desenharmos o look juntas." },
-  { t: "Deslocação", d: "Vou ao seu hotel, casa ou local do evento em qualquer ponto do Algarve." },
-  { t: "Português e inglês", d: "Trabalho com clientes nacionais e internacionais." },
-  { t: "Longa duração", d: "Técnica e produtos pensados para aguentar o dia inteiro." },
-  { t: "Atenção ao detalhe", d: "Cada pincelada com tempo e cuidado." },
-];
-
 function WhyMe() {
+  const { t } = useI18n();
   return (
     <section className="border-y border-line bg-cream py-24 md:py-40">
       <div className="mx-auto max-w-[1280px] px-6 md:px-10">
         <div className="mb-20 max-w-3xl">
-          <Reveal><p className="eyebrow">Como trabalho</p></Reveal>
+          <Reveal><p className="eyebrow">{t.why.eyebrow}</p></Reveal>
           <Reveal delay={0.1}>
             <h2 className="mt-6 font-serif text-4xl leading-[1.05] md:text-6xl">
-              Como <em className="italic text-champagne-deep">trabalho</em>.
+              {t.why.titleA}<em className="italic text-champagne-deep">{t.why.titleEm}</em>.
             </h2>
           </Reveal>
         </div>
         <div className="grid gap-x-12 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
-          {reasons.map((r, i) => (
+          {t.why.items.map((r, i) => (
             <Reveal key={r.t} delay={i * 0.06}>
               <div className="border-t border-line pt-8">
                 <p className="font-serif text-sm italic text-champagne-deep">
@@ -469,22 +427,15 @@ function WhyMe() {
 }
 
 /* ---------------- PROCESS ---------------- */
-const steps = [
-  { n: "01", t: "Contacto", d: "Fala comigo pelo WhatsApp. Vemos disponibilidade e detalhes." },
-  { n: "02", t: "Consulta", d: "Conversamos sobre o seu estilo, evento e preferências." },
-  { n: "03", t: "Prova", d: "Fazemos uma prova para acertar o look final." },
-  { n: "04", t: "No dia", d: "Chego a horas, com calma, no seu espaço." },
-  { n: "05", t: "Resultado", d: "Uma maquilhagem bonita, sua, feita para durar." },
-];
-
 function Process() {
+  const { t } = useI18n();
   return (
     <section id="processo" className="mx-auto max-w-[1280px] px-6 py-24 md:px-10 md:py-40">
       <div className="mb-20 max-w-2xl">
-        <Reveal><p className="eyebrow">Processo</p></Reveal>
+        <Reveal><p className="eyebrow">{t.process.eyebrow}</p></Reveal>
         <Reveal delay={0.1}>
           <h2 className="mt-6 font-serif text-4xl leading-[1.05] md:text-6xl">
-            Como <em className="italic text-champagne-deep">funciona</em>.
+            {t.process.titleA}<em className="italic text-champagne-deep">{t.process.titleEm}</em>.
           </h2>
         </Reveal>
       </div>
@@ -492,17 +443,20 @@ function Process() {
       <div className="relative">
         <div className="absolute left-0 right-0 top-8 hidden h-px bg-line md:block" />
         <ol className="grid gap-12 md:grid-cols-5 md:gap-6">
-          {steps.map((s, i) => (
-            <Reveal key={s.n} delay={i * 0.08}>
-              <li className="relative">
-                <div className="relative mb-8 grid h-16 w-16 place-items-center rounded-full border border-line bg-cream">
-                  <span className="font-serif text-lg italic text-champagne-deep">{s.n}</span>
-                </div>
-                <h3 className="font-serif text-2xl">{s.t}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-ink">{s.d}</p>
-              </li>
-            </Reveal>
-          ))}
+          {t.process.steps.map((s, i) => {
+            const n = String(i + 1).padStart(2, "0");
+            return (
+              <Reveal key={n} delay={i * 0.08}>
+                <li className="relative">
+                  <div className="relative mb-8 grid h-16 w-16 place-items-center rounded-full border border-line bg-cream">
+                    <span className="font-serif text-lg italic text-champagne-deep">{n}</span>
+                  </div>
+                  <h3 className="font-serif text-2xl">{s.t}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-ink">{s.d}</p>
+                </li>
+              </Reveal>
+            );
+          })}
         </ol>
       </div>
     </section>
@@ -510,41 +464,20 @@ function Process() {
 }
 
 /* ---------------- TESTIMONIALS ---------------- */
-const testimonials = [
-  {
-    q: "A minha maquilhagem durou do início ao fim do dia. Senti-me eu, com mais luz.",
-    a: "Beatriz M.",
-    r: "Noiva, Vilamoura",
-  },
-  {
-    q: "Profissional, calma e atenta. Viemos de Londres e o resultado foi melhor do que esperávamos.",
-    a: "Charlotte R.",
-    r: "Casamento, Lagos",
-  },
-  {
-    q: "Já trabalhei com várias maquilhadoras. A Nicole sabe onde parar.",
-    a: "Inês F.",
-    r: "Editora de moda",
-  },
-  {
-    q: "Contratei-a para uma gala e recebi elogios a noite toda.",
-    a: "Sofia A.",
-    r: "Evento, Faro",
-  },
-];
-
 function Testimonials() {
+  const { t } = useI18n();
+  const items = t.testimonials.items;
   const [i, setI] = useState(0);
   useEffect(() => {
-    const t = setInterval(() => setI((v) => (v + 1) % testimonials.length), 7000);
-    return () => clearInterval(t);
-  }, []);
-  const t = testimonials[i];
+    const timer = setInterval(() => setI((v) => (v + 1) % items.length), 7000);
+    return () => clearInterval(timer);
+  }, [items.length]);
+  const cur = items[i % items.length];
 
   return (
     <section id="testemunhos" className="bg-beige/50 py-24 md:py-40">
       <div className="mx-auto max-w-[1100px] px-6 md:px-10">
-        <Reveal><p className="eyebrow text-center">Testemunhos</p></Reveal>
+        <Reveal><p className="eyebrow text-center">{t.testimonials.eyebrow}</p></Reveal>
         <Reveal delay={0.1}>
           <div className="mt-4 flex justify-center gap-1 text-champagne">
             {"★★★★★".split("").map((s, k) => (
@@ -564,22 +497,22 @@ function Testimonials() {
               className="text-center"
             >
               <p className="font-serif text-2xl leading-[1.35] italic text-ink md:text-4xl lg:text-[42px]">
-                "{t.q}"
+                "{cur.q}"
               </p>
               <footer className="mt-10">
-                <p className="font-serif text-lg">{t.a}</p>
-                <p className="mt-1 text-xs uppercase tracking-[0.2em] text-muted-ink">{t.r}</p>
+                <p className="font-serif text-lg">{cur.a}</p>
+                <p className="mt-1 text-xs uppercase tracking-[0.2em] text-muted-ink">{cur.r}</p>
               </footer>
             </motion.blockquote>
           </AnimatePresence>
         </div>
 
         <div className="mt-10 flex justify-center gap-3">
-          {testimonials.map((_, k) => (
+          {items.map((_, k) => (
             <button
               key={k}
               onClick={() => setI(k)}
-              aria-label={`Ver testemunho ${k + 1}`}
+              aria-label={`${k + 1}`}
               className={`h-1 rounded-full transition-all ${k === i ? "w-10 bg-ink" : "w-4 bg-line"}`}
             />
           ))}
@@ -590,31 +523,23 @@ function Testimonials() {
 }
 
 /* ---------------- FAQ ---------------- */
-const faqs = [
-  { q: "Como marco?", a: "Envie mensagem no WhatsApp. Respondo no próprio dia com disponibilidade e valores." },
-  { q: "Trabalha em todo o Algarve?", a: "Sim. De Sagres a Vila Real de Santo António, incluindo vilas, hotéis e quintas." },
-  { q: "Faz casamentos internacionais?", a: "Sim. Trabalho com clientes de Portugal, Reino Unido, Alemanha, França e Estados Unidos." },
-  { q: "É preciso fazer prova de maquilhagem?", a: "Para noivas, recomendo. Para outros eventos, é opcional." },
-  { q: "Com quanto tempo devo marcar?", a: "De maio a setembro, o ideal é marcar com 6 a 12 meses de antecedência." },
-  { q: "Que produtos usa?", a: "Marcas profissionais como Dior, Chanel, Charlotte Tilbury, Hourglass e Pat McGrath, escolhidas para cada pele." },
-];
-
 function FAQ() {
+  const { t } = useI18n();
   return (
     <section id="faq" className="mx-auto max-w-[1100px] px-6 py-24 md:px-10 md:py-40">
       <div className="grid gap-16 lg:grid-cols-12">
         <div className="lg:col-span-4">
-          <Reveal><p className="eyebrow">FAQ</p></Reveal>
+          <Reveal><p className="eyebrow">{t.faq.eyebrow}</p></Reveal>
           <Reveal delay={0.1}>
             <h2 className="mt-6 font-serif text-4xl leading-[1.05] md:text-5xl">
-              Perguntas <em className="italic text-champagne-deep">frequentes</em>.
+              {t.faq.titleA}<em className="italic text-champagne-deep">{t.faq.titleEm}</em>.
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-6 text-muted-ink">
-              Não encontra a resposta?{" "}
+              {t.faq.helper}
               <a href={WHATSAPP} target="_blank" rel="noopener" className="link-underline text-ink">
-                Envie mensagem
+                {t.faq.helperLink}
               </a>
               .
             </p>
@@ -623,7 +548,7 @@ function FAQ() {
         <div className="lg:col-span-8">
           <Reveal>
             <Accordion type="single" collapsible className="w-full">
-              {faqs.map((f, i) => (
+              {t.faq.items.map((f, i) => (
                 <AccordionItem key={i} value={`item-${i}`} className="border-b border-line">
                   <AccordionTrigger className="py-6 text-left font-serif text-xl hover:no-underline md:text-2xl">
                     {f.q}
@@ -643,6 +568,7 @@ function FAQ() {
 
 /* ---------------- FINAL CTA ---------------- */
 function FinalCTA() {
+  const { t } = useI18n();
   return (
     <section className="relative overflow-hidden">
       <div className="absolute inset-0">
@@ -656,24 +582,24 @@ function FinalCTA() {
       </div>
       <div className="relative mx-auto max-w-[1280px] px-6 py-32 md:px-10 md:py-48">
         <div className="max-w-2xl">
-          <Reveal><p className="eyebrow" style={{ color: "rgba(255,255,255,0.85)" }}>Marcações abertas</p></Reveal>
+          <Reveal><p className="eyebrow" style={{ color: "rgba(255,255,255,0.85)" }}>{t.cta.eyebrow}</p></Reveal>
           <Reveal delay={0.1}>
             <h2 className="mt-6 font-serif text-5xl leading-[1.03] text-white md:text-7xl lg:text-[88px]">
-              Vamos <em className="italic text-champagne">falar</em>.
+              {t.cta.titleA}<em className="italic text-champagne">{t.cta.titleEm}</em>.
             </h2>
           </Reveal>
           <Reveal delay={0.2}>
             <p className="mt-8 max-w-lg text-lg leading-relaxed text-white/85">
-              Poucas datas por mês. Envie mensagem para verificar disponibilidade.
+              {t.cta.note}
             </p>
           </Reveal>
           <Reveal delay={0.3}>
             <div className="mt-12 flex flex-wrap gap-4">
               <a href={WHATSAPP} target="_blank" rel="noopener" className="btn-primary bg-white text-ink border-white hover:bg-champagne-deep hover:border-champagne-deep hover:text-white">
-                Marcar no WhatsApp
+                {t.cta.marcar}
               </a>
               <a href={INSTAGRAM} target="_blank" rel="noopener" className="btn-ghost text-white border-white/70 hover:bg-white hover:text-ink">
-                Instagram
+                {t.cta.instagram}
               </a>
             </div>
           </Reveal>
@@ -685,6 +611,7 @@ function FinalCTA() {
 
 /* ---------------- FOOTER ---------------- */
 function Footer() {
+  const { t } = useI18n();
   return (
     <footer className="border-t border-line bg-cream">
       <div className="mx-auto max-w-[1280px] px-6 py-16 md:px-10">
@@ -694,11 +621,11 @@ function Footer() {
               Nicole <span className="italic text-champagne-deep">Martins</span>
             </p>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-ink">
-              Maquilhagem profissional no Algarve.
+              {t.footer.tagline}
             </p>
           </div>
           <div>
-            <p className="eyebrow">Contacto</p>
+            <p className="eyebrow">{t.footer.contact}</p>
             <ul className="mt-6 space-y-3 text-sm text-ink">
               <li><a href={WHATSAPP} target="_blank" rel="noopener" className="link-underline">WhatsApp</a></li>
               <li><a href="tel:+351968776015" className="link-underline">+351 968 776 015</a></li>
@@ -706,14 +633,14 @@ function Footer() {
             </ul>
           </div>
           <div>
-            <p className="eyebrow">Localização</p>
-            <p className="mt-6 text-sm text-ink">Algarve, Portugal</p>
-            <p className="mt-2 text-sm text-muted-ink">Deslocação a toda a região.</p>
+            <p className="eyebrow">{t.footer.location}</p>
+            <p className="mt-6 text-sm text-ink">{t.footer.region}</p>
+            <p className="mt-2 text-sm text-muted-ink">{t.footer.travel}</p>
           </div>
         </div>
         <div className="mt-16 flex flex-col items-start justify-between gap-4 border-t border-line pt-8 text-xs text-muted-ink md:flex-row md:items-center">
-          <p>© {new Date().getFullYear()} Nicole Martins. Todos os direitos reservados.</p>
-          <p className="italic font-serif">Feito com cuidado no Algarve.</p>
+          <p>© {new Date().getFullYear()} Nicole Martins. {t.footer.rights}</p>
+          <p className="italic font-serif">{t.footer.madeWith}</p>
         </div>
       </div>
     </footer>

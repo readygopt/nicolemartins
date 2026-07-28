@@ -1,14 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-
-const links = [
-  { href: "#sobre", label: "Sobre" },
-  { href: "#servicos", label: "Serviços" },
-  { href: "#portfolio", label: "Trabalhos" },
-  { href: "#processo", label: "Processo" },
-  { href: "#testemunhos", label: "Testemunhos" },
-  { href: "#faq", label: "FAQ" },
-];
+import { useI18n } from "@/lib/i18n";
 
 const WHATSAPP = "https://wa.me/351968776015?text=Ol%C3%A1%20Nicole%2C%20gostaria%20de%20saber%20mais%20sobre%20os%20seus%20servi%C3%A7os%20de%20maquilhagem.";
 const INSTAGRAM = "https://www.instagram.com/nicoleemartins.algarve/";
@@ -16,6 +8,16 @@ const INSTAGRAM = "https://www.instagram.com/nicoleemartins.algarve/";
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const { lang, setLang, t } = useI18n();
+
+  const links = [
+    { href: "#sobre", label: t.nav.sobre },
+    { href: "#servicos", label: t.nav.servicos },
+    { href: "#portfolio", label: t.nav.portfolio },
+    { href: "#processo", label: t.nav.processo },
+    { href: "#testemunhos", label: t.nav.testemunhos },
+    { href: "#faq", label: t.nav.faq },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -23,6 +25,26 @@ export function Nav() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const LangToggle = ({ className = "" }: { className?: string }) => (
+    <div className={`inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.18em] ${className}`}>
+      <button
+        onClick={() => setLang("pt")}
+        aria-label="Português"
+        className={lang === "pt" ? "text-ink" : "text-ink/40 hover:text-ink"}
+      >
+        PT
+      </button>
+      <span className="text-ink/30">/</span>
+      <button
+        onClick={() => setLang("en")}
+        aria-label="English"
+        className={lang === "en" ? "text-ink" : "text-ink/40 hover:text-ink"}
+      >
+        EN
+      </button>
+    </div>
+  );
 
   return (
     <motion.header
@@ -48,20 +70,26 @@ export function Nav() {
             </a>
           ))}
         </nav>
-        <a href={WHATSAPP} target="_blank" rel="noopener" className="hidden btn-primary lg:inline-flex">
-          Marcar
-        </a>
-        <button
-          aria-label="Abrir menu"
-          onClick={() => setOpen((v) => !v)}
-          className="lg:hidden text-ink"
-        >
-          <div className="space-y-1.5">
-            <span className={`block h-px w-6 bg-ink transition-transform ${open ? "translate-y-1.5 rotate-45" : ""}`} />
-            <span className={`block h-px w-6 bg-ink transition-opacity ${open ? "opacity-0" : ""}`} />
-            <span className={`block h-px w-6 bg-ink transition-transform ${open ? "-translate-y-1.5 -rotate-45" : ""}`} />
-          </div>
-        </button>
+        <div className="hidden items-center gap-6 lg:flex">
+          <LangToggle />
+          <a href={WHATSAPP} target="_blank" rel="noopener" className="btn-primary">
+            {t.nav.marcar}
+          </a>
+        </div>
+        <div className="flex items-center gap-4 lg:hidden">
+          <LangToggle />
+          <button
+            aria-label="Menu"
+            onClick={() => setOpen((v) => !v)}
+            className="text-ink"
+          >
+            <div className="space-y-1.5">
+              <span className={`block h-px w-6 bg-ink transition-transform ${open ? "translate-y-1.5 rotate-45" : ""}`} />
+              <span className={`block h-px w-6 bg-ink transition-opacity ${open ? "opacity-0" : ""}`} />
+              <span className={`block h-px w-6 bg-ink transition-transform ${open ? "-translate-y-1.5 -rotate-45" : ""}`} />
+            </div>
+          </button>
+        </div>
       </div>
       {open && (
         <motion.div
@@ -81,7 +109,7 @@ export function Nav() {
               </a>
             ))}
             <a href={WHATSAPP} target="_blank" rel="noopener" className="btn-primary mt-4 self-start">
-              Marcar no WhatsApp
+              {t.nav.menu}
             </a>
           </div>
         </motion.div>

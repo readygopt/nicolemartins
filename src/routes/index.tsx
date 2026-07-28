@@ -464,10 +464,10 @@ function WhyMe() {
     <section className="border-y border-line bg-cream py-24 md:py-40">
       <div className="mx-auto max-w-[1280px] px-6 md:px-10">
         <div className="mb-20 max-w-3xl">
-          <Reveal><p className="eyebrow">Porquê Nicole</p></Reveal>
+          <Reveal><p className="eyebrow">Como trabalho</p></Reveal>
           <Reveal delay={0.1}>
             <h2 className="mt-6 font-serif text-4xl leading-[1.05] md:text-6xl">
-              Uma promessa <em className="italic text-champagne-deep">silenciosa</em> de excelência.
+              Como <em className="italic text-champagne-deep">trabalho</em>.
             </h2>
           </Reveal>
         </div>

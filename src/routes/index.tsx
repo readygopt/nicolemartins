@@ -693,8 +693,8 @@ function FinalCTA() {
               <a href={WHATSAPP} target="_blank" rel="noopener" className="btn-primary bg-white text-ink border-white hover:bg-champagne-deep hover:border-champagne-deep hover:text-white">
                 Marcar no WhatsApp
               </a>
-              <a href="mailto:hello@nicolemartins.pt" className="btn-ghost text-white border-white/70 hover:bg-white hover:text-ink">
-                Enviar email
+              <a href={INSTAGRAM} target="_blank" rel="noopener" className="btn-ghost text-white border-white/70 hover:bg-white hover:text-ink">
+                Instagram
               </a>
             </div>
           </Reveal>

@@ -329,7 +329,7 @@ function Services() {
                     <span className="text-right normal-case tracking-normal">{s.ideal}</span>
                   </div>
                   <a href={WHATSAPP} target="_blank" rel="noopener" className="mt-8 inline-flex items-center gap-2 text-sm uppercase tracking-[0.16em] text-ink link-underline">
-                    Reservar <span aria-hidden>→</span>
+                    Marcar <span aria-hidden>→</span>
                   </a>
                 </div>
               </article>

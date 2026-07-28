@@ -80,7 +80,7 @@ export function Nav() {
               </a>
             ))}
             <a href={WHATSAPP} target="_blank" rel="noopener" className="btn-primary mt-4 self-start">
-              Reservar no WhatsApp
+              Marcar no WhatsApp
             </a>
           </div>
         </motion.div>

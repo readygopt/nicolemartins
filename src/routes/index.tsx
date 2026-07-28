@@ -715,7 +715,7 @@ function Footer() {
               Nicole <span className="italic text-champagne-deep">Martins</span>
             </p>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted-ink">
-              Maquilhagem profissional de luxo — Algarve, Portugal.
+              Maquilhagem profissional no Algarve.
             </p>
           </div>
           <div>

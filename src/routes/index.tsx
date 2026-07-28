@@ -451,12 +451,12 @@ function Portfolio() {
 
 /* ---------------- WHY ME ---------------- */
 const reasons = [
-  { t: "Produtos Premium", d: "Marcas de luxo internacionais, testadas e selecionadas para longa duração." },
-  { t: "Serviço Personalizado", d: "Consulta prévia detalhada e prova para desenhar o seu look ideal." },
-  { t: "Ao seu Domicílio", d: "Deslocação a vilas, hotéis, quintas e cenários do Algarve." },
-  { t: "Casamentos Destino", d: "Fluente em português, inglês e experiência com noivas internacionais." },
-  { t: "Longa Duração", d: "Técnicas profissionais e produtos long-wear para durar até ao último brinde." },
-  { t: "Atenção ao Detalhe", d: "Uma obsessão silenciosa por cada pincelada, cada textura, cada acabamento." },
+  { t: "Produtos de qualidade", d: "Marcas profissionais escolhidas para cada pele e para durar o dia todo." },
+  { t: "Serviço próximo", d: "Consulta prévia e prova para desenharmos o look juntas." },
+  { t: "Deslocação", d: "Vou ao seu hotel, casa ou local do evento em qualquer ponto do Algarve." },
+  { t: "Português e inglês", d: "Trabalho com clientes nacionais e internacionais." },
+  { t: "Longa duração", d: "Técnica e produtos pensados para aguentar o dia inteiro." },
+  { t: "Atenção ao detalhe", d: "Cada pincelada com tempo e cuidado." },
 ];
 
 function WhyMe() {

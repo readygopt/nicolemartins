@@ -23,11 +23,11 @@ import eventoImg from "@/assets/evento.jpg.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Nicole Martins — Maquilhadora Profissional | Algarve" },
+      { title: "Nicole Martins | Maquilhadora no Algarve" },
       {
         name: "description",
         content:
-          "Maquilhagem de luxo para noivas, casamentos de destino e ocasiões especiais no Algarve. Serviço personalizado por Nicole Martins.",
+          "Maquilhagem profissional para noivas, eventos e sessões fotográficas no Algarve.",
       },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -40,7 +40,7 @@ export const Route = createFileRoute("/")({
           name: "Nicole Martins Makeup Artist",
           image: heroImg.url,
           description:
-            "Maquilhadora profissional no Algarve especializada em noivas, casamentos de destino e ocasiões especiais.",
+            "Maquilhadora profissional no Algarve. Noivas, eventos e sessões fotográficas.",
           areaServed: "Algarve, Portugal",
           address: { "@type": "PostalAddress", addressRegion: "Algarve", addressCountry: "PT" },
           priceRange: "€€€",

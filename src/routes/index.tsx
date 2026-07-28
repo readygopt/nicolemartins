@@ -491,11 +491,11 @@ function WhyMe() {
 
 /* ---------------- PROCESS ---------------- */
 const steps = [
-  { n: "01", t: "Reserva", d: "Contacto via WhatsApp, verificação de disponibilidade e reserva da data." },
-  { n: "02", t: "Consulta", d: "Conversa detalhada sobre o seu estilo, vestido, tom de pele e desejos." },
-  { n: "03", t: "Preparação", d: "Prova de maquilhagem, ajustes finos e definição do look final." },
-  { n: "04", t: "O Dia", d: "Chegada pontual, ambiente calmo, maquilhagem sem pressas no seu espaço." },
-  { n: "05", t: "Resultado", d: "Uma versão sua, luminosa e confiante — pronta para ser fotografada." },
+  { n: "01", t: "Contacto", d: "Fala comigo pelo WhatsApp. Vemos disponibilidade e detalhes." },
+  { n: "02", t: "Consulta", d: "Conversamos sobre o seu estilo, evento e preferências." },
+  { n: "03", t: "Prova", d: "Fazemos uma prova para acertar o look final." },
+  { n: "04", t: "No dia", d: "Chego a horas, com calma, no seu espaço." },
+  { n: "05", t: "Resultado", d: "Uma maquilhagem bonita, sua, feita para durar." },
 ];
 
 function Process() {
@@ -505,7 +505,7 @@ function Process() {
         <Reveal><p className="eyebrow">Processo</p></Reveal>
         <Reveal delay={0.1}>
           <h2 className="mt-6 font-serif text-4xl leading-[1.05] md:text-6xl">
-            Do primeiro <em className="italic text-champagne-deep">olá</em> ao último olhar.
+            Como <em className="italic text-champagne-deep">funciona</em>.
           </h2>
         </Reveal>
       </div>

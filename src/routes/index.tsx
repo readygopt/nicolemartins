@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
-import { Nav, WHATSAPP } from "@/components/site/Nav";
+import { Nav, WHATSAPP, INSTAGRAM } from "@/components/site/Nav";
 import { Reveal } from "@/components/site/Reveal";
 import { WhatsAppFloat } from "@/components/site/WhatsAppFloat";
 import {
